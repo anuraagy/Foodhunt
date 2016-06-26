@@ -11,7 +11,10 @@ Rails.application.routes.draw do
     match "logout",  :to => "sessions#destroy",  :via => :delete,  :as => :destroy_user_session
   end
 
-  resources :users, :only => [:show, :edit, :update] 
+  resources :users, :only => [:show, :edit, :update] do
+    post :edit_job, :on => :collection, :as => :edit_job
+  end
+
   resources :recipes
 
   get :paginate, :as => :paginate, :to => "pages#paginate"

@@ -1,10 +1,10 @@
 class UserValidator
   constructor: (@element) ->
-    @element.validate(rules: @rules())
+    # @element.validate(rules: @rules())
 
   rules: =>
     {
-    
+
     }
 
 $ ->
