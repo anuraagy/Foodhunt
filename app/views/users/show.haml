@@ -19,11 +19,12 @@
   - else
     Foodhunt User
 
-.row
-  .col-md-12
-    %h1.bleh Submitted
-  = render @user.submitted
-.row
-  .col-md-12
-    %h1.bleh Voted
-  = render @user.voted
+.recipes-row
+  .row
+    .col-md-12
+      %h1.bleh Submitted
+    = render @user.submitted
+  .row
+    .col-md-12
+      %h1.bleh Voted
+    = render @user.voted

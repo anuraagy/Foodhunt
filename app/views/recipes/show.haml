@@ -14,3 +14,8 @@
 Comments
 
 = render @recipe.comments
+= form_tag comments_path, :remote => true, :class => "form-horizontal" do
+  .form-group
+    .input-group{:style => "padding-top:20px"}
+      = text_field_tag :comment,"", :placeholder => "Add a comment", :class => "form-control", :id => "comment"
+      = submit_tag

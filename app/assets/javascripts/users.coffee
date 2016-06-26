@@ -6,12 +6,9 @@ class Users
     @job_submit     = $("#job_submit")
     @job_container  = $(".job")
     @edit_job       = $("#edit_job")
-    
+
     @job_submit.on "click", @submitJob
-
-    # @document.on "ajax:success",  @job_submit, @successfulUpdate
-    # @document.on "ajax:error",    @job_submit, @errorUpdate
-
+    
   submitJob: =>
     if @job_field.val() == ''
       @errors.html("Please enter text into the job field before submitting")

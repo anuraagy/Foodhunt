@@ -1,4 +1,4 @@
-$("#content").fadeOut("slow", function() {
-  $("#content").html("<%= j render(:partial => 'recipes') %>")
+$(".recipes-row").fadeOut("slow", function() {
+  $(".recipes-row").html("<%= j render(:partial => 'recipes') %>")
 })
-$("#content").fadeIn("slow")
+$(".recipes-row").fadeIn("slow")
