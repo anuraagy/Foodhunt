@@ -13,9 +13,10 @@
 %br
 Comments
 
-= render @recipe.comments
-= form_tag comments_path, :remote => true, :class => "form-horizontal" do
-  .form-group
-    .input-group{:style => "padding-top:20px"}
-      = text_field_tag :comment,"", :placeholder => "Add a comment", :class => "form-control", :id => "comment"
-      = submit_tag
+.comments
+  = render @recipe.comments
+  = form_tag comments_path, :remote => true, :id => "comment_form" do
+    .form-group
+      = text_area_tag :comment,"", :placeholder => "Add a comment", :class => "form-control", :id => "comment", :style => "margin-top: 20px;", :required => true
+      = hidden_field_tag :recipe, @recipe.id
+      = submit_tag "Post", :class => "form-control btn btn-primary", :style => "margin-top: 20px;", :id => "comment_submit"

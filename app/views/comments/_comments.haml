@@ -1,0 +1,6 @@
+= render @recipe.comments
+= form_tag comments_path, :remote => true do
+  .form-group
+    = text_area_tag :comment,"", :placeholder => "Add a comment", :class => "form-control", :id => "comment", :style => "margin-top: 20px;"
+    = hidden_field_tag :recipe, @recipe.id
+    = submit_tag "Post", :class => "form-control btn btn-primary", :style => "margin-top: 20px;"
