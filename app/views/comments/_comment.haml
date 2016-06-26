@@ -1,9 +1,9 @@
-.col-md-12
-  .panel.panel-default
-    .panel-heading
-      = comment.user.name
-      - if current_user == comment.user
-        = link_to "Edit", "/"
-        = link_to "Delete","/"
-    .panel-body
-      = comment.text
+.panel.panel-default
+  .panel-heading
+    %strong Posted by:
+    = comment.user.name
+    - if current_user == comment.user
+      = link_to "Edit", "/"
+      = link_to "Delete","/"
+  .panel-body
+    = comment.text

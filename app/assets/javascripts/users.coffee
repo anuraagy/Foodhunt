@@ -8,7 +8,7 @@ class Users
     @edit_job       = $("#edit_job")
 
     @job_submit.on "click", @submitJob
-    
+      
   submitJob: =>
     if @job_field.val() == ''
       @errors.html("Please enter text into the job field before submitting")

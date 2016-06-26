@@ -1,18 +1,13 @@
-%p
-  %strong Title:
-  = @recipe.title
-%p
-  %strong Tagline:
-  = @recipe.tagline
-%p
-  %strong Submitter:
-  = @recipe.user.email
+
+.recipes-row
+  = render @recipe
 
 = link_to 'Edit', edit_recipe_path(@recipe) if current_user == @recipe.user
 = link_to 'Back', recipes_path
-%br
-Comments
 
+.page-header
+  %h3 Comments
+  
 .comments
   = render @recipe.comments
   = form_tag comments_path, :remote => true, :id => "comment_form" do
