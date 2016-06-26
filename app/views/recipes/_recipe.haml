@@ -9,7 +9,6 @@
             = recipe.votes.count
           .pull-right{:style => "margin-right: 5px"}
             Votes:
-
     .panel-body
       = recipe.tagline
       %div.swag.pull-right{:style => "margin-left: 10px;"}
@@ -21,3 +20,4 @@
         - else
           = link_to "Vote", new_user_session_path, :class => "btn btn-primary col-md-12 "
       = link_to "Try it out", recipe.link, :class => "btn btn-info pull-right"
+      = link_to "Comments", recipe, :class => "btn btn-warning pull-right", :style => "margin-right: 10px;"
