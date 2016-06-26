@@ -8,6 +8,9 @@
   %strong Submitter:
   = @recipe.user.email
 
-
 = link_to 'Edit', edit_recipe_path(@recipe) if current_user == @recipe.user
 = link_to 'Back', recipes_path
+%br
+Comments
+
+= render @recipe.comments
