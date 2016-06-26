@@ -15,6 +15,7 @@ class Comments
 
   errorComment: =>
     @errors.html("Unfortunatly there was an error in your comment, please try again next time")
+    @errors.show()
 
 $ ->
   new Comments($("body"))

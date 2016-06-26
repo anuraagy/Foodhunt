@@ -35,6 +35,7 @@ class Pages
 
   errorVote: =>
     @errors.html("Unfortunatly there was an error in your voting, please try again next time")
+    @errors.show()
 
   createVote: (data) =>
     @count.text(parseInt(@count.text()) + 1)

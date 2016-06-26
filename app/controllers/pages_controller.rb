@@ -2,18 +2,18 @@ class PagesController < ApplicationController
 
   def index
     @date = Time.now.to_date
-    @recipes = Recipe.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+    @recipes = Recipe.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).ordered
   end
 
   def paginate
     @date = Date.parse(params["date"])
 
     if @date == Date.today
-      @recipes = Recipe.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+      @recipes = Recipe.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).ordered
     else
-      @recipes = Recipe.where(created_at: @date.beginning_of_day..@date.end_of_day)
+      @recipes = Recipe.where(created_at: @date.beginning_of_day..@date.end_of_day).ordered
     end
-    
+
     respond_to do |format|
       format.js { render layout: false, content_type: 'text/javascript' }
     end
