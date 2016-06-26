@@ -6,8 +6,10 @@ class Users
     @job_submit     = $("#job_submit")
     @job_container  = $(".job")
     @edit_job       = $("#edit_job")
+    @name_container = $(".name")
 
     @job_submit.on "click", @submitJob
+    @name_container.on "click", @edit_name, @showEditName
 
   submitJob: =>
     if @job_field.val() == ''

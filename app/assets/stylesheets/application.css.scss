@@ -29,10 +29,14 @@
  }
 
  .notices {
-   margin-top: -20px;
+   margin-top: -10px;
+   margin-bottom: 20px;
+  //  position: absolute;
  }
 
-.notice {
-  line-height:3;
-  padding-left: 10px;
-}
+  .notice {
+    line-height: 3;
+    padding-left: 20px;
+    font-size: 1em;
+    text-align: center;
+  }

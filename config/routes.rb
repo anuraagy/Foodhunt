@@ -26,6 +26,6 @@ Rails.application.routes.draw do
     post :destroy,  :on => :member, :as => :destroy
   end
 
-  resources :comments, :only => [:create, :update, :destroy]
-  
+  resources :comments, :only => [:create, :update, :destroy, :edit]
+
 end

@@ -51,6 +51,6 @@ class Pages
     @vote.attr("href", "/votes/" + data.recipe + "/toggle?voted=false")
     @vote.addClass("btn-primary")
     @vote.removeClass("btn-success")
-    @vote.html("Vote")
+    @vote.html("&nbsp;&nbsp; Vote &nbsp;&nbsp;")
 $ ->
   new Pages($("body"))

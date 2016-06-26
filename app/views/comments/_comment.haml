@@ -3,7 +3,11 @@
     %strong Posted by:
     = comment.user.name
     - if current_user == comment.user
-      = link_to "Edit", "/"
+      = link_to "Edit", edit_comment_path(comment), :remote => true
       = link_to "Delete","/"
+    .pull-right
+      %strong
+        = comment.created_at.strftime("%c")
   .panel-body
-    = comment.text
+    %div{:id => "comment-#{comment.id}"}
+      = comment.text

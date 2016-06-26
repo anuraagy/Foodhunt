@@ -1,9 +1,5 @@
-
 .recipes-row
   = render @recipe
-
-= link_to 'Edit', edit_recipe_path(@recipe) if current_user == @recipe.user
-= link_to 'Back', recipes_path
 
 .page-header
   %h3 Comments
