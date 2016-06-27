@@ -6,16 +6,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def update
-    @user = User.find(params[:id])
-
-    if @user.update(user_params)
-      redirect_to @user
-    else
-      render :edit
-    end
-  end
-
   def edit_job
     @user = User.find(params[:id])
 
@@ -54,12 +44,6 @@ class UsersController < ApplicationController
         format.json { render :json => @user.errors, :status => 500}
       end
     end
-  end
-
-  private
-
-  def user_params
-    params.require(:recipe).permit(:job, :username)
   end
 
 end

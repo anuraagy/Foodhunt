@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
+
   before_action :authenticate_user!, :except => [:index, :show]
+  before_action :check_user, :only => [:edit, :update, :destroy]
 
   def index
     @recipes = Recipe.all
@@ -23,7 +25,7 @@ class RecipesController < ApplicationController
     end
   end
 
-    def update
+  def update
     @recipe = Recipe.find(params[:id])
 
     if @recipe.update(recipe_params)
@@ -48,5 +50,13 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:title, :tagline, :link, :image, :user)
+  end
+
+  def check_user
+    @recipe = Recipe.find(params[:id])
+
+    if current_user != @recipe.user
+      redirect_to root_path, :notice => "You are not authorized to complete this action"
+    end
   end
 end

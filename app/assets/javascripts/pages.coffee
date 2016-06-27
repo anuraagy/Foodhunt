@@ -1,23 +1,18 @@
 class Pages
   constructor: (@element) ->
-    @document        = $(document)
-
     @recipe_groups   = @element.find(".recipe_group")
     @voting_buttons  = @element.find(".vote")
     @errors          = @element.find(".notice")
     @search_field    = @element.find("#search")
     @recipeRow       = @element.find(".recipes-row")
 
-    @recipeRow.on "ajax:success",  @voting_buttons, @successfulVote
-    @recipeRow.on "ajax:error",    @voting_buttons, @errorVote
-
-    @search_field.on "input",     @searchRecipes
+    @recipeRow.on     "ajax:success",  @voting_buttons,  @successfulVote
+    @recipeRow.on     "ajax:error",    @voting_buttons,  @errorVote
+    @search_field.on  "input",         @searchRecipes
 
   searchRecipes: =>
     query = @search_field.val()
-    @sendRequest(query)
 
-  sendRequest: (query) =>
     $.ajax
       url: "/search"
       data: { q: query }

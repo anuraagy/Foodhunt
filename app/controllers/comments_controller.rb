@@ -42,4 +42,5 @@ class CommentsController < ApplicationController
       format.js { render layout: false, content_type: 'text/javascript'}
     end
   end
+
 end

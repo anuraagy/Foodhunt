@@ -1,7 +1,7 @@
 class Recipe < ActiveRecord::Base
 
   belongs_to :user
-  has_many   :votes, :dependent => :destroy
+  has_many   :votes,    :dependent => :destroy
   has_many   :comments, :dependent => :destroy
 
   validates :title,    :presence => true, :length  => { :maximum => 255 }
@@ -9,9 +9,9 @@ class Recipe < ActiveRecord::Base
   validates :link,     :presence => true
   validates :user,     :presence => true
 
-  validate  :user_under_limit?
+  validate  :user_under_limit?, :on => :create
 
-  validates_format_of :link, :with => /\A(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?\Z/i,   :message => "Please use a valid url"
+  validates_format_of :link,  :with => /\A(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?\Z/i,   :message => "Please use a valid url"
   validates_format_of :image, :with => /\A(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?\Z/i,  :message => "Please use a valid url", :allow_nil => true
 
   def self.ordered

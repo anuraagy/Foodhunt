@@ -27,5 +27,5 @@ class VotesController < ApplicationController
       render :json => { :success => false }
     end
   end
-  
+
 end
