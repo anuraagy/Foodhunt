@@ -1,0 +1,5 @@
+= form_tag update_name_user_path(current_user), :remote => true, :id => "name_form", :method => :POST, :class => "form-group col-md-9 col-md-offset-2 name-form" do
+  .input-group{:style => "padding-top:20px"}
+    = text_field_tag :name, @user.name, :class => "form-control", :id => "edit_name", :required => true
+    .input-group-btn
+      = submit_tag "Submit", :class => "btn btn-primary"

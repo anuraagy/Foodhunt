@@ -4,18 +4,19 @@
 
 .name{:style => "padding-top:20px"}
   = @user.name
-  = link_to "Edit", "javascript:void(0)", :id => "edit_name", :style => "font-size: 16px"
-
-.job
+  - if current_user == @user
+    = link_to 'Edit', edit_name_user_path(@user), :id => 'edit_name', :style => "font-size: 16px", :remote => true, :method => :POST
+%br
+.job{:style => "margin-bottom: 20px;"}
   - if @user.job?
     .center-text
       = @user.job
-      = link_to 'Edit', edit_job_user_path(@user), :id => 'edit_job', :style => 'font-size: 12px', :remote => true, :method => :POST
+      - if current_user == @user
+        = link_to 'Edit', edit_job_user_path(@user), :id => 'edit_job', :style => 'font-size: 12px', :remote => true, :method => :POST
   - elsif @user == current_user
     = render "jobform"
   - else
     Foodhunt User
-%br
 %br
 
 .recipes-row
