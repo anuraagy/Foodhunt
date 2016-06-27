@@ -1,0 +1,8 @@
+%strong
+  = recipe.title
+%p.pull-right
+  %strong
+    .votes.pull-right{:id => "#{recipe.id}"}
+      = recipe.votes.count
+    .pull-right{:style => "margin-right: 5px"}
+      Votes:
