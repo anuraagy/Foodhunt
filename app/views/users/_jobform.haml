@@ -1,0 +1,5 @@
+= form_tag update_job_user_path(current_user), :remote => true, :id => "job_form", :method => :POST, :class => "form-group col-md-4 col-md-offset-4 job-form" do
+  .input-group{:style => "padding-top:20px"}
+    = text_field_tag :job, @user.job, :placeholder => "Add a job title...", :class => "form-control", :id => "add_job"
+    .input-group-btn
+      = submit_tag "Submit", :class => "btn btn-primary"

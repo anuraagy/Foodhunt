@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, :only => [:show, :edit, :update] do
-    post :edit_job, :on => :collection, :as => :edit_job
+    post :edit_job,     :on => :member, :as => :edit_job
+    post :edit_name,    :on => :member, :as => :edit_name
+    post :update_job,   :on => :member, :as => :update_job
+    post :update_name,  :on => :member, :as => :update_name
   end
 
   resources :recipes
